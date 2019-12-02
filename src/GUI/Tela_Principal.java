@@ -116,7 +116,7 @@ public class Tela_Principal extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false
@@ -187,7 +187,7 @@ public class Tela_Principal extends javax.swing.JFrame {
 
         jLabel3.setText("Setor de Envio");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "INFORMATICA" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "selecione" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -196,7 +196,7 @@ public class Tela_Principal extends javax.swing.JFrame {
 
         jLabel4.setText("Setor de Recebimento");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Prestação de Contas", "Convênios", "SUBTRAB" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "selecione" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
@@ -360,7 +360,7 @@ public class Tela_Principal extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
          Connection conn=ConexaoMySQL.getConnection();
         
-       String src="Relatorio_2.jasper";
+       String src="C:\\Relatorio_2.jasper";
         JasperPrint jasperPrint=null;
         try {
             jasperPrint=JasperFillManager.fillReport(src, null, conn);
@@ -394,16 +394,12 @@ public class Tela_Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-        if(jtPesquisa.getText().equals("")){
-            JOptionPane.showMessageDialog(this, "campo de pesquisa não pode retornar vazio!!!");
-        }else{
             DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
             final TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(modelo);
             this.jTable1.setRowSorter(sorter);
             String text = jtPesquisa.getText().toUpperCase();
             sorter.setRowFilter(RowFilter.regexFilter(text, 0));
-        }
+            //sorter.setRowFilter(RowFilter.regexFilter(text, 3));
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
